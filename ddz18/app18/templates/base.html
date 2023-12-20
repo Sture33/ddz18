@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %}
+
+    {% endblock title%}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header_container container">
+            <div class="header_body">
+                <div class="header_logo">Book management</div>
+                <div class="header_navbar">
+                    {%if request.build_absolute_uri != 'http://127.0.0.1:8000/' %}
+                    <a href="{%url 'start'%}">Home</a>
+                    {% endif %}
+                    <a href="{% url 'book_create'%}">Create Book</a>
+                    <a href="{% url 'author_create'%}">Create Author</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="container">
+        <div class="block">
+            {% block block %}
+
+            {% endblock block%}
+        </div>
+        </div>
+    </div>
+</body>
+</html>

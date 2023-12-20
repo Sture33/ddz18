@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% block title %}
+    Author List
+{% endblock title %}
+{% block block %}
+    {% for author in author_list %}
+        <p>{{ author }} {{ author.surname }} - <a href="{% url 'author_update' author.slug %}">Update</a>
+            - <a href="{% url 'author_detail' author.slug %}">Detail</a>
+            - <a href="{% url 'author_delete' author.slug %}">Delete</a></p>
+    {% endfor %}
+{% endblock block%}
